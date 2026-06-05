@@ -1,1 +1,446 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Магистратура тесті — Вариант 2 — Сыни ойлау</title>
 
+  <style>
+    *{
+      box-sizing:border-box;
+    }
+
+    body{
+      margin:0;
+      font-family:Arial, sans-serif;
+      background:linear-gradient(135deg,#eef7ff,#f6fff4);
+      color:#1b1b1b;
+    }
+
+    .wrapper{
+      max-width:950px;
+      margin:auto;
+      padding:16px;
+    }
+
+    .hero{
+      background:linear-gradient(135deg,#1565c0,#43a047);
+      color:white;
+      padding:28px 20px;
+      border-radius:22px;
+      text-align:center;
+      margin-bottom:18px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .hero h1{
+      margin:0 0 10px;
+      font-size:30px;
+      line-height:1.2;
+    }
+
+    .hero p{
+      margin:8px 0;
+      font-size:16px;
+      line-height:1.5;
+    }
+
+    .badge{
+      display:inline-block;
+      background:white;
+      color:#1565c0;
+      padding:8px 14px;
+      border-radius:999px;
+      font-weight:bold;
+      margin-top:12px;
+      font-size:14px;
+    }
+
+    .card{
+      background:white;
+      padding:22px;
+      border-radius:20px;
+      margin-bottom:18px;
+      box-shadow:0 6px 18px rgba(0,0,0,0.08);
+    }
+
+    .card h2{
+      margin-top:0;
+      color:#1565c0;
+      font-size:22px;
+    }
+
+    .section-title{
+      background:#e3f2fd;
+      border-left:5px solid #1565c0;
+      padding:14px;
+      border-radius:14px;
+      margin-bottom:18px;
+    }
+
+    .question{
+      background:#f7f7f7;
+      padding:18px;
+      border-radius:16px;
+      margin-bottom:16px;
+      border-left:5px solid #43a047;
+    }
+
+    .question b{
+      display:block;
+      margin-bottom:12px;
+      font-size:16px;
+      line-height:1.5;
+    }
+
+    label{
+      display:block;
+      background:white;
+      padding:12px;
+      border-radius:12px;
+      margin:8px 0;
+      border:1px solid #ddd;
+      cursor:pointer;
+      line-height:1.4;
+    }
+
+    label:hover{
+      background:#e8f5e9;
+    }
+
+    input[type="radio"]{
+      margin-right:8px;
+      transform:scale(1.1);
+    }
+
+    .question-image{
+      width:100%;
+      max-width:420px;
+      display:block;
+      margin:12px auto 16px;
+      border-radius:14px;
+      border:1px solid #ddd;
+      box-shadow:0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    button{
+      width:100%;
+      background:#1565c0;
+      color:white;
+      border:none;
+      padding:16px;
+      border-radius:14px;
+      cursor:pointer;
+      font-size:18px;
+      font-weight:bold;
+      margin-top:10px;
+    }
+
+    button:hover{
+      background:#0d47a1;
+    }
+
+    .result-box{
+      background:#e8f5e9;
+      border:2px solid #43a047;
+      padding:22px;
+      border-radius:20px;
+      text-align:center;
+      margin-bottom:18px;
+    }
+
+    .result-box h2{
+      margin-top:0;
+      color:#2e7d32;
+    }
+
+    .correct{
+      color:green;
+      font-weight:bold;
+    }
+
+    .wrong{
+      color:red;
+      font-weight:bold;
+    }
+
+    .explanation{
+      background:#f1f8e9;
+      padding:12px;
+      margin:10px 0 18px;
+      border-radius:12px;
+      line-height:1.5;
+    }
+
+    .footer{
+      text-align:center;
+      color:#555;
+      font-size:14px;
+      padding:20px 0;
+    }
+
+    @media(max-width:600px){
+      .wrapper{
+        padding:12px;
+      }
+
+      .hero{
+        padding:24px 16px;
+        border-radius:18px;
+      }
+
+      .hero h1{
+        font-size:24px;
+      }
+
+      .hero p{
+        font-size:15px;
+      }
+
+      .card{
+        padding:16px;
+        border-radius:17px;
+      }
+
+      .question{
+        padding:15px;
+      }
+
+      .question b{
+        font-size:15px;
+      }
+
+      label{
+        font-size:15px;
+        padding:11px;
+      }
+
+      button{
+        font-size:16px;
+        padding:15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="wrapper">
+
+  <div class="hero">
+    <h1>Магистратура тесті — Вариант 2</h1>
+    <p>Сыни ойлау бөлімі</p>
+    <p>15 сұрақ • Нәтиже бірден шығады</p>
+    <span class="badge">Сыни ойлау / Математика</span>
+  </div>
+
+  <div class="card">
+    <h2>Нұсқаулық</h2>
+    <p>Барлық сұрақтарға жауап беріңіз. Соңында нәтижені және әр сұрақтың түсіндірмесін көресіз.</p>
+  </div>
+
+  <div class="card">
+    <div class="section-title">
+      <h2>Сыни ойлау</h2>
+      <p>Дұрыс жауапты таңдаңыз.</p>
+    </div>
+
+    <div id="quiz"></div>
+
+    <button onclick="checkAnswers()">Нәтижені көру / Показать результат</button>
+  </div>
+
+  <div id="results"></div>
+
+  <div class="footer">
+    © Магистратураға дайындық — Вариант 2
+  </div>
+
+</div>
+
+<script>
+const questions = [
+  {
+    q:"1. 3x - 9 = 6 теңдеуін шешіңіз.",
+    options:["A) 1","B) 2","C) 3","D) 4","E) 5"],
+    answer:4,
+    explanation:"3x - 9 = 6 → 3x = 15 → x = 5. Сондықтан дұрыс жауап — E."
+  },
+  {
+    q:"2. Аружанда музыка сақтайтын есте сақтау картасы бар. Есте сақтау картасының жады 2 GB (2000 MB). Егер 1 музыкасының жады 6 MB болса, есте сақтау картасына қанша музыка сақтауға болады?",
+    options:["A) 400","B) 500","C) 333","D) 422","E) 357"],
+    answer:2,
+    explanation:"2000 ÷ 6 = 333,(...) Сондықтан толық сақталатын музыка саны — 333. Дұрыс жауап — C."
+  },
+  {
+    q:"3. Радиусы 2,7 см-ге тең дөңгелектің ауданын табу керек.",
+    options:["A) 10,8π см²","B) 8π см²","C) 7,29π см²","D) 8π см²","E) 5,4π см²"],
+    answer:2,
+    explanation:"S = πr² = π × 2,7² = π × 7,29 = 7,29π. Дұрыс жауап — C."
+  },
+  {
+    q:"4. Бағанды салыстырыңыз: x = 2, y = 3. A шамасы: x × y, B шамасы: y × x",
+    options:["A) Берілген мәлімет жеткіліксіз","B) А шамасы үлкен","C) Шамалар тең","D) В шамасы үлкен"],
+    answer:2,
+    explanation:"2 × 3 = 3 × 2 = 6. Екі шама тең. Дұрыс жауап — C."
+  },
+  {
+    q:"5. Жалпы ауылда сиыр саны = 6, тауық саны = 7, лақ саны = 5 болса, жалпы аяқтар саны?",
+    options:["A) 54","B) 58","C) 45","D) 52","E) 64"],
+    answer:1,
+    explanation:"Сиыр: 6×4 = 24, тауық: 7×2 = 14, лақ: 5×4 = 20. Барлығы: 24 + 14 + 20 = 58. Дұрыс жауап — B."
+  },
+  {
+    q:"6. Егер 3 < x < 5 және 4 < y < 6, онда x × y жататын аралық.",
+    options:["A) 3 < x×y < 6","B) 12 < x×y < 13","C) 3 < x×y < 11","D) 7 < x×y < 11","E) 12 < x×y < 30"],
+    answer:4,
+    explanation:"Ең кіші мәні 3×4 = 12-ден үлкен, ең үлкені 5×6 = 30-дан кіші. Сондықтан 12 < x×y < 30. Дұрыс жауап — E."
+  },
+  {
+    q:"7. Бес түрлі карточка берілген. Ең кіші сан қай карточкада болатынын табыңыз.",
+    options:["A) 2","B) 3","C) 4","D) 5","E) 1"],
+    answer:2,
+    explanation:"Берілген карточкалар ішінде ең кіші мән 4-карточкада орналасқан. Сондықтан дұрыс жауап — C."
+  },
+  {
+    q:"8. Анасының жасы 34-те, қызының жасы 8-де. Неше жылдан кейін анасының жасы қызының жасының екі есесіндей болады?",
+    options:["A) 34","B) 18","C) 16","D) 8","E) 42"],
+    answer:1,
+    explanation:"x жылдан кейін: 34 + x = 2(8 + x). 34 + x = 16 + 2x. x = 18. Дұрыс жауап — B."
+  },
+  {
+    q:"9. Үш дос 400 м² еденді бояған. Талғар 35%, Бекзат 40%, ал қалғанын Ержан бояса, онда Ержан еденнің қандай ауданын бояғанын табыңыз.",
+    options:["A) 100 м²","B) 160 м²","C) 120 м²","D) 200 м²","E) 150 м²"],
+    answer:0,
+    explanation:"35% + 40% = 75%. Қалғаны 25%. 400-дің 25%-ы = 100 м². Дұрыс жауап — A."
+  },
+  {
+    q:"10. Сұрақ белгісінің орнындағы санды табыңыз.",
+    image:"IMG_0861.jpeg",
+    options:["A) 56","B) 63","C) 42","D) 49","E) 28"],
+    answer:1,
+    explanation:"Сызбадағы заңдылық бойынша дұрыс жауап — 63. Дұрыс жауап — B."
+  },
+  {
+    q:"11. Бағанды салыстырыңыз: A шамасы: x – y, B шамасы: y – x",
+    options:["A) Берілген мәлімет жеткіліксіз","B) А шамасы үлкен","C) Шамалар тең","D) В шамасы үлкен"],
+    answer:0,
+    explanation:"x пен y арасындағы нақты байланыс берілмеген. Сондықтан қай шаманың үлкен екенін анықтау мүмкін емес. Дұрыс жауап — A."
+  },
+  {
+    q:"12. 50 + (5 × 8) – 10 = есеп мәнінің 20% пайызы.",
+    options:["A) 12","B) 14","C) 17","D) 16","E) 13"],
+    answer:3,
+    explanation:"50 + 40 - 10 = 80. 80-нің 20%-ы = 16. Дұрыс жауап — D."
+  },
+  {
+    q:"13. x, y, z мәндерін табыңыз: x + 2y + 5z = -9, x - y + 3z = 2, 3x - 6y - z = 25",
+    options:[
+      "A) x = 3, y = -3, z = -1",
+      "B) x = 2, y = -3, z = -1",
+      "C) x = 2, y = 3, z = 1",
+      "D) x = 2, y = 2, z = 5",
+      "E) x = 0, y = 3, z = 1"
+    ],
+    answer:1,
+    explanation:"Жүйені шешсек: z = -1, y = -3, x = 2. Сондықтан дұрыс жауап — B."
+  },
+  {
+    q:"14. Диаграммада 11-сынып оқушыларының сандық құрамы көрсетілген. Мектептегі барлық 11-сынып оқушыларының саны 200 болса, 11 «А» сыныптарында барлығы неше оқушы бар екенін табыңыз.",
+    image:"IMG_0860.jpeg",
+    options:["A) 50","B) 60","C) 70","D) 80","E) 90"],
+    answer:1,
+    explanation:"Диаграммадағы 11 «А» сыныптарының үлесіне сүйенсек, жалпы саны 60 оқушы болады. Дұрыс жауап — B."
+  },
+  {
+    q:"15. Қабырғасы 15 дм-ге тең квадраттың ауданын есептеңіз?",
+    options:["A) 225 дм²","B) 215 дм²","C) 245 дм²","D) 255 дм²","E) 265 дм²"],
+    answer:0,
+    explanation:"Квадраттың ауданы: S = a² = 15² = 225 дм². Дұрыс жауап — A."
+  }
+];
+
+const quiz = document.getElementById("quiz");
+
+questions.forEach((item, index) => {
+  let html = `<div class="question">
+    <b>${item.q}</b>`;
+
+  if(item.image){
+    html += `<img src="${item.image}" alt="Question image" class="question-image">`;
+  }
+
+  item.options.forEach((option, optionIndex) => {
+    html += `
+      <label>
+        <input type="radio" name="q${index}" value="${optionIndex}">
+        ${option}
+      </label>
+    `;
+  });
+
+  html += `</div>`;
+  quiz.innerHTML += html;
+});
+
+function checkAnswers(){
+  let score = 0;
+  let resultHTML = "";
+
+  questions.forEach((item, index) => {
+    const selected = document.querySelector(`input[name="q${index}"]:checked`);
+    const userAnswer = selected ? Number(selected.value) : null;
+
+    if(userAnswer === item.answer){
+      score++;
+      resultHTML += `<p class="correct">✔ ${item.q}</p>`;
+    } else {
+      resultHTML += `<p class="wrong">✘ ${item.q}</p>`;
+    }
+
+    resultHTML += `
+      <div class="explanation">
+        <b>Дұрыс жауап:</b> ${item.options[item.answer]}<br>
+        <b>Сіздің жауабыңыз:</b> ${userAnswer !== null ? item.options[userAnswer] : "Жауап берілмеді"}<br>
+        <b>Түсіндірме:</b> ${item.explanation}
+      </div>
+    `;
+  });
+
+  let level = "";
+  let messageKaz = "";
+  let messageRus = "";
+
+  if(score <= 5){
+    level = "Бастапқы деңгей / Начальный уровень";
+    messageKaz = "Сізге әлі көбірек жаттығу керек.";
+    messageRus = "Вам нужно ещё больше практики.";
+  } else if(score <= 10){
+    level = "Орташа деңгей / Средний уровень";
+    messageKaz = "Негізгі түсінік бар, бірақ әлі де жұмыс істеу қажет.";
+    messageRus = "Базовое понимание есть, но ещё нужно поработать.";
+  } else {
+    level = "Жақсы дайындық / Хорошая готовность";
+    messageKaz = "Нәтижеңіз жақсы. Жалғастырып дайындала беріңіз.";
+    messageRus = "Результат хороший. Продолжайте подготовку.";
+  }
+
+  const finalBlock = `
+    <div class="result-box">
+      <h2>Нәтижеңіз: ${score}/${questions.length}</h2>
+      <h2>${level}</h2>
+      <p>${messageKaz}</p>
+      <p>${messageRus}</p>
+    </div>
+  `;
+
+  document.getElementById("results").innerHTML = finalBlock + resultHTML;
+
+  document.getElementById("results").scrollIntoView({
+    behavior:"smooth"
+  });
+}
+</script>
+
+</body>
+</html>
